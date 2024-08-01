@@ -6,8 +6,8 @@ const server = http.createServer((request, response) => {
 
     if (method === "GET" && url === '/users') {
         return response
-        .setHeader('Content-type', 'application/json')
-        .end(JSON.stringify(users))
+            .setHeader('Content-type', 'application/json')
+            .end(JSON.stringify(users))
     }
 
     if (method === "POST" && url === "/users") {
@@ -16,9 +16,9 @@ const server = http.createServer((request, response) => {
             name: 'Felipe',
             email: 'felipearruda@gmail.com'
         })
-        return response.end('Criação de usuário')
+        return response.writeHead(201).end('Criação de usuário')
     }
-    return response.end('Salve!')
+    return response.writeHead(404).end()
 })
 
 server.listen(3333)
