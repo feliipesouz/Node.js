@@ -5,8 +5,8 @@ const users = []
 const server = http.createServer(async (request, response) => {
     const { method, url } = request;
 
-    await Json(req, res)
-    
+    await Json(request, response)
+
     if (method === "GET" && url === '/users') {
         return response
             .end(JSON.stringify(users))
