@@ -2,7 +2,7 @@ import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-user
 import { beforeEach, describe, expect, it } from "vitest";
 import { AuthenticateUseCase } from "./authenticate";
 import bcrypt from "bcryptjs";
-import { InvalidCredential } from "./errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "./errors/invalid-credentials-error";
 
 let usersRepository: InMemoryUsersRepository;
 let sut: AuthenticateUseCase;
@@ -33,7 +33,7 @@ describe("Authenticate Use Case", () => {
         email: "felipesouzaero@gmail.com",
         password: "123456",
       }),
-    ).rejects.toBeInstanceOf(InvalidCredential);
+    ).rejects.toBeInstanceOf(InvalidCredentialsError);
   });
 
   it("Should not be able to authenticate with wrong password", async () => {
@@ -42,6 +42,6 @@ describe("Authenticate Use Case", () => {
         email: "felipesouzaero@gmail.com",
         password: "123123",
       }),
-    ).rejects.toBeInstanceOf(InvalidCredential);
+    ).rejects.toBeInstanceOf(InvalidCredentialsError);
   });
 });
