@@ -1,7 +1,7 @@
 import { UsersRepository } from "@/repositories/users-repository";
 import { User } from "@prisma/client";
 import { InvalidCredential } from "./errors/invalid-credentials-error";
-import { compare } from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 interface AuthenticateUseCaseRequest {
   email: string;
@@ -12,7 +12,7 @@ interface AuthenticateUseCaseResponse {
   user: User;
 }
 
-export class AuthenticateUeeCase {
+export class AuthenticateUseCase {
   private usersRepository;
 
   constructor(usersRepository: UsersRepository) {
@@ -29,7 +29,10 @@ export class AuthenticateUeeCase {
       throw new InvalidCredential();
     }
 
-    const doesPasswordMatches = compare(password, user.password_hash);
+    const doesPasswordMatches = await bcrypt.compare(
+      password,
+      user.password_hash,
+    );
 
     if (!doesPasswordMatches) {
       throw new InvalidCredential();
