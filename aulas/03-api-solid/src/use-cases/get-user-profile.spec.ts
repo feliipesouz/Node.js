@@ -24,7 +24,7 @@ describe("Authenticate Use Case", () => {
       userId: createdUser.id,
     });
 
-    expect(user.name).toEqual("Jonh Doe");
+    expect(user.name).toEqual("Felipe");
   });
 
   it("Should not be able to get user profile with wrong id", async () => {
