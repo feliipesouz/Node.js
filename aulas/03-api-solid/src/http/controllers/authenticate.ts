@@ -1,4 +1,4 @@
-import { InvalidCredential } from "@/use-cases/errors/invalid-credentials-error";
+import { InvalidCredentialsError } from "@/use-cases/errors/invalid-credentials-error";
 import { makeAuthenticateUseCase } from "@/use-cases/facturies/make-authenticate-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
@@ -22,7 +22,7 @@ export async function authenticate(
       password,
     });
   } catch (err) {
-    if (err instanceof InvalidCredential) {
+    if (err instanceof InvalidCredentialsError) {
       return reply.status(400).send({ message: err.message });
     }
     throw err;
