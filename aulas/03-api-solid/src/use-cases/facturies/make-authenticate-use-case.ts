@@ -1,9 +1,9 @@
 // O Facture é um centralizador de criação do nosso caso de uso
-import { InMemoryUsersRepository } from "@/repositories/in-memory/in-memory-users-repository";
 import { AuthenticateUseCase } from "../authenticate";
+import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-repository";
 
 export function makeAuthenticateUseCase() {
-  const usersRepository = new InMemoryUsersRepository();
+  const usersRepository = new PrismaUsersRepository();
   const authenticateUseCase = new AuthenticateUseCase(usersRepository);
 
   return authenticateUseCase;
