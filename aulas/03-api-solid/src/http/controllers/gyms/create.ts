@@ -5,8 +5,8 @@ import { z } from "zod";
 export async function create(request: FastifyRequest, reply: FastifyReply) {
   const createBodySchema = z.object({
     title: z.string(),
-    description: z.string().email(),
-    phone: z.string().min(6),
+    description: z.string().nullable(),
+    phone: z.string().nullable(),
     latitude: z.number().refine((value) => {
       return Math.abs(value) <= 90;
     }),

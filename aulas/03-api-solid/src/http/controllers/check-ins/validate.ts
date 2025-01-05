@@ -1,4 +1,3 @@
-import { makeCheckInUseCase } from "@/use-cases/facturies/make-check-in-use-case";
 import { makeValidateCheckInUseCase } from "@/use-cases/facturies/make-validate-check-in-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
