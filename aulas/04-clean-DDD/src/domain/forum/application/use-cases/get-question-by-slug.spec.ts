@@ -1,16 +1,16 @@
 import { InMemoryQuestionsRepository } from "test/repositories/in-memory-questions-repository";
-import { GetQuestionBySlug } from "./get-question-by-slug";
+import { GetQuestionBySlugUseCase } from "./get-question-by-slug";
 import { Slug } from "../../enterprise/entities/value-objects/slug";
 import { MakeQuestion } from "test/factories/make-question";
 
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
-let sut: GetQuestionBySlug
+let sut: GetQuestionBySlugUseCase
 
 describe('Get Question By Slug', () => {
   beforeEach(()=> {
      inMemoryQuestionsRepository = new InMemoryQuestionsRepository()
-     sut = new GetQuestionBySlug(inMemoryQuestionsRepository);
+     sut = new GetQuestionBySlugUseCase(inMemoryQuestionsRepository);
   })
   
   it("should be able to get a question by slug", async () => {

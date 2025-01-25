@@ -9,7 +9,7 @@ interface GetQuestionBySlugUseCaseResponse {
     question: Question
 }
 
-export class GetQuestionBySlug {
+export class GetQuestionBySlugUseCase {
    
     constructor(private questionsRepository: QuestionsRepository){}
 
