@@ -18,10 +18,10 @@ export class ChooseQuestionBestAnswerUseCase {
   ) {}
 
   async execute({
-    authorId,
     answerId,
+    authorId,
   }: ChooseQuestionBestAnswerUseCaseRequest): Promise<ChooseQuestionBestAnswerUseCaseResponse> {
-    const answer = this.answerRepository.findById(answerId)
+    const answer = await this.answerRepository.findById(answerId)
 
     if(!answer) {
       throw new Error("Answer not found.")
