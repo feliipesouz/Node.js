@@ -31,7 +31,7 @@ export class ChooseQuestionBestAnswerUseCase {
       answer.questionId.toString()
     )
 
-    if(authorId !== question?.authorId.toString()){
+    if(authorId !== question?.authorId.toString()){ 
       throw new Error('Not allowed.')
     }
 
