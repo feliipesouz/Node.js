@@ -27,6 +27,5 @@ describe('Create Question', () => {
       expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
       expect.objectContaining({ attachmentId: new UniqueEntityID('2') })
     ])
-
   });
 })
