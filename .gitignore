@@ -2,7 +2,15 @@
 /dist
 /node_modules
 /build
+
+# Docker
 /data
+
+# Prisma
+/generated
+
+# ENV
+.env
 
 # Logs
 logs
