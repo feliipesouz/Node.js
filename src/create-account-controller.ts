@@ -4,7 +4,6 @@ import { hash } from 'bcryptjs'
 import { z } from "zod";
 import { ZodValidationPipe } from "./pipes/zod-validation-pipe";
 
-
 const createAccountBodySchema = z.object({
     name: z.string(),
     email: z.string().email(),
