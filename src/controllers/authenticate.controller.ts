@@ -37,6 +37,7 @@ export class AuthenticateController {
         const isPasswordValid = await compare(password, user.password)
 
         if (!isPasswordValid) {
+            console.log("Não autorizado.......")
             throw new UnauthorizedException("User credentials do not match.")
         }
 
